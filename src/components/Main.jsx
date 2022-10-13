@@ -4,6 +4,7 @@ import {Navbar, PuppyLineup, PuppySelect} from "./"
 const Main = () => {
     const [puppyList, setPuppyList] = useState([]);
     const [chosenPuppy, setChosenPuppy] = useState({});
+    const [filteredList, setFilteredList] = useState([]);
 
     async function getPuppyList() {
         const response = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players');
@@ -11,8 +12,8 @@ const Main = () => {
         setPuppyList(puppies.data.players);
     }
 
-    function choosePuppy(id) {
-        let chosen = puppyList.filter(elem => elem.id === id)[0];
+    function choosePuppy(paramId) {
+        let chosen = puppyList.filter(elem => elem.id === paramId)[0];
         setChosenPuppy(chosen);
         console.log(chosen);
     }
@@ -21,9 +22,9 @@ const Main = () => {
 
     return (
         <div id="main">
-            <Navbar />
-            {chosenPuppy.id ? <PuppySelect />: null}
-            <PuppyLineup puppyList={puppyList} choosePuppy={choosePuppy}/>
+            <Navbar puppyList={puppyList} setFilteredList={setFilteredList}/>
+            {chosenPuppy.id ? <PuppySelect puppy={chosenPuppy} setChosenPuppy={setChosenPuppy}/>: null}
+            <PuppyLineup puppyList={puppyList} filteredList={filteredList} choosePuppy={choosePuppy}/>
         </div>
     )
 }

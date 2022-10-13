@@ -1,9 +1,11 @@
 import React from 'react'
+import {SearchBar} from './'
 
-const Navbar = () => {
+const Navbar = ({puppyList, setFilteredList}) => {
     return (
         <div id='navbar'>
-            <h2>I am navbar</h2>
+            <h2>Puppy Bowl</h2>
+            <SearchBar puppyList={puppyList} setFilteredList={setFilteredList}/>
         </div>
     );
 };
