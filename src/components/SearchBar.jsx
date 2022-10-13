@@ -1,14 +1,17 @@
 import React from "react"
 
 const SearchBar = ({puppyList, setFilteredList}) => {
-    function findPuppy(paramString) {
-        const newPuppyList = puppyList.filter(elem => elem.name === paramString);
+    function findPuppy(event) {
+        event.preventDefault()
+        let searchString = event.target[0].value.toLowerCase()
+        const newPuppyList = puppyList.filter(elem => elem.name.toLowerCase().includes(searchString));
         setFilteredList(newPuppyList);
+        console.log(newPuppyList)
     }
 
     return (
-        <form> 
-            <input type="text" id="searchInput" placeholder="Search"></input>       
+        <form onSubmit={findPuppy}> 
+            <input type="text" id="searchInput" placeholder="Search"></input>      
         </form>
     )
 
