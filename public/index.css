@@ -23,5 +23,24 @@ body {
 .puppyLineup {
   display: flex;
   flex-flow: row wrap;
+  flex-basis: 100px;
 }
 
+
+.modal{
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  opacity: 40%;
+}
+
+.modalContent{
+  margin: 20%;
+  background-color: white;
+  width: 70%;
+}

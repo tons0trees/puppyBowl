@@ -1,15 +1,15 @@
 import React from "react"
 import {PuppyCard} from "./"
 
-const PuppyLineup = ({puppyList}) => {
+const PuppyLineup = ({puppyList, choosePuppy}) => {
     return (
-        <div id="puppyLineup">
+        <span id="puppyLineup">
             {
                 puppyList.map((elem) => {
-                    return <PuppyCard key={`puppy-${elem.id}`} puppy={elem}/>
+                    return <PuppyCard key={`puppy-${elem.id}`} puppy={elem} choosePuppy={choosePuppy}/>
                 })
             }
-        </div>
+        </span>
     )
 }
 

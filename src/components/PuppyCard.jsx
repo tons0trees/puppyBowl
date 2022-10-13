@@ -1,8 +1,8 @@
 import React from "react"
 
-const PuppyCard = ({puppy}) => {
+const PuppyCard = ({puppy, choosePuppy}) => {
     return (
-        <div className="puppyCard">
+        <div className="puppyCard" onClick={() =>choosePuppy(puppy.id)}>
             <h3>{puppy.name}</h3>
             <img className="profilePic" src={puppy.imageUrl} />
             <div className="puppyDetails">
