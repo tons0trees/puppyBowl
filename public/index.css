@@ -16,3 +16,12 @@ body {
   align-items: center;
 }
 
+.profilePic {
+  height: 150px;
+}
+
+.puppyLineup {
+  display: flex;
+  flex-flow: row wrap;
+}
+
