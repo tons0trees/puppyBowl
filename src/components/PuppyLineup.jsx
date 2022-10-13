@@ -3,7 +3,7 @@ import {PuppyCard} from "./"
 
 const PuppyLineup = ({puppyList, filteredList, choosePuppy}) => {
     return (
-        <span id="puppyLineup">
+        <div id="puppyLineup">
             {filteredList.length ?
                 filteredList.map(elem => {
                     return <PuppyCard key={`puppy-${elem.id}`} puppy={elem} choosePuppy={choosePuppy}/>
@@ -13,7 +13,7 @@ const PuppyLineup = ({puppyList, filteredList, choosePuppy}) => {
                     return <PuppyCard key={`puppy-${elem.id}`} puppy={elem} choosePuppy={choosePuppy}/>
                 })
             }
-        </span>
+        </div>
     )
 }
 
