@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 
-const PuppyInputForm = ({createPuppy}) => {
+const PuppyInputForm = ({createPuppy, setReadyToCreatePuppy}) => {
     const [newName, setNewName] = useState("")
     const [newBreed, setNewBreed] = useState("")
-    const [newTeam, setNewTeam] = useState(null)
+    const [newTeam, setNewTeam] = useState(442)
     const [newStatus, setNewStatus] = useState('bench')
 
     function makePuppy(event) {
@@ -15,6 +15,7 @@ const PuppyInputForm = ({createPuppy}) => {
             status: newStatus
         }
         createPuppy(newPuppy);
+        setReadyToCreatePuppy(false);
     }
 
     return(
@@ -32,7 +33,7 @@ const PuppyInputForm = ({createPuppy}) => {
             <label for='team'>
                 Enter your puppy's team:  
                 <select onChange={(elem) => setNewTeam(elem.target.value)}>
-                    <option value={442}>Ruff</option>
+                    <option defaultValue={442}>Ruff</option>
                     <option value={443}>Fluff</option>
                 </select>
             </label>
@@ -40,8 +41,8 @@ const PuppyInputForm = ({createPuppy}) => {
             <label for='status'>
                 Enter your puppy's status: 
                 <select onChange={(elem) => setNewStatus(elem.target.value)}>
+                    <option defaultValue='bench'>Bench</option>
                     <option value='field'>Field</option>
-                    <option value='bench'>Bench</option>
                 </select>
             </label>
 

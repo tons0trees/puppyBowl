@@ -5,6 +5,7 @@ const Main = () => {
     const [puppyList, setPuppyList] = useState([]);
     const [chosenPuppy, setChosenPuppy] = useState({});
     const [filteredList, setFilteredList] = useState([]);
+    const [readyToCreatePuppy, setReadyToCreatePuppy] = useState(false);
 
     async function getPuppyList() {
         const response = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players');
@@ -29,19 +30,17 @@ const Main = () => {
         })
         const result = await response.json();
         let newPuppyList = [...puppyList, result.data.newPlayer];
-        console.log(newPuppyList);
-        // setPuppyList(result.data.newPlayer);
+        setPuppyList(newPuppyList);
     }
 
     useEffect(() => {getPuppyList()},[]);
 
     return (
         <div id="main">
-            <Navbar puppyList={puppyList} setFilteredList={setFilteredList}/>
-            <PuppyInputForm createPuppy={createPuppy}/>
+            <Navbar puppyList={puppyList} setFilteredList={setFilteredList} setReadyToCreatePuppy={setReadyToCreatePuppy}/>
+            {readyToCreatePuppy ? <PuppyInputForm createPuppy={createPuppy} setReadyToCreatePuppy={setReadyToCreatePuppy}/> : null}
             {chosenPuppy.id ? <PuppySelect puppy={chosenPuppy} setChosenPuppy={setChosenPuppy}/>: null}
             <PuppyLineup puppyList={puppyList} filteredList={filteredList} choosePuppy={choosePuppy} chosenPuppy={chosenPuppy}/>
-            <button onClick={createPuppy}>Create Rufus</button>
         </div>
     )
 }
