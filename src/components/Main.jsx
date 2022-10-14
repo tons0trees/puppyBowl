@@ -37,8 +37,8 @@ const Main = () => {
 
     return (
         <div id="main">
-            <Navbar puppyList={puppyList} setFilteredList={setFilteredList} setReadyToCreatePuppy={setReadyToCreatePuppy}/>
-            {readyToCreatePuppy ? <PuppyInputForm createPuppy={createPuppy} setReadyToCreatePuppy={setReadyToCreatePuppy}/> : null}
+            <Navbar puppyList={puppyList} setFilteredList={setFilteredList} readyToCreatePuppy={readyToCreatePuppy} setReadyToCreatePuppy={setReadyToCreatePuppy}/>
+            {readyToCreatePuppy ? <PuppyInputForm createPuppy={createPuppy} setReadyToCreatePuppy={setReadyToCreatePuppy} setPuppyList={setPuppyList}/> : null}
             {chosenPuppy.id ? <PuppySelect puppy={chosenPuppy} setChosenPuppy={setChosenPuppy}/>: null}
             <PuppyLineup puppyList={puppyList} filteredList={filteredList} choosePuppy={choosePuppy} chosenPuppy={chosenPuppy}/>
         </div>
