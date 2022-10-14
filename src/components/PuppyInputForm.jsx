@@ -20,17 +20,17 @@ const PuppyInputForm = ({createPuppy, setReadyToCreatePuppy}) => {
 
     return(
         <form id="inputForm" onSubmit={makePuppy}>
-            <label for='name'>
+            <label htmlFor='name'>
                 Enter your puppy's name:
                 <input type="text" name="name" value={newName} onChange={(elem) => setNewName(elem.target.value)}/>
             </label>
 
-            <label for='breed'>
+            <label htmlFor='breed'>
                 Enter your puppy's breed:
                 <input type='text' name='breed' value={newBreed} onChange={(elem) => setNewBreed(elem.target.value)}/>
             </label>
 
-            <label for='team'>
+            <label htmlFor='team'>
                 Enter your puppy's team:  
                 <select onChange={(elem) => setNewTeam(elem.target.value)}>
                     <option defaultValue={442}>Ruff</option>
@@ -38,7 +38,7 @@ const PuppyInputForm = ({createPuppy, setReadyToCreatePuppy}) => {
                 </select>
             </label>
 
-            <label for='status'>
+            <label htmlFor='status'>
                 Enter your puppy's status: 
                 <select onChange={(elem) => setNewStatus(elem.target.value)}>
                     <option defaultValue='bench'>Bench</option>
