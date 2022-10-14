@@ -24,7 +24,7 @@ const Main = () => {
         <div id="main">
             <Navbar puppyList={puppyList} setFilteredList={setFilteredList}/>
             {chosenPuppy.id ? <PuppySelect puppy={chosenPuppy} setChosenPuppy={setChosenPuppy}/>: null}
-            <PuppyLineup puppyList={puppyList} filteredList={filteredList} choosePuppy={choosePuppy}/>
+            <PuppyLineup puppyList={puppyList} filteredList={filteredList} choosePuppy={choosePuppy} chosenPuppy={chosenPuppy}/>
         </div>
     )
 }

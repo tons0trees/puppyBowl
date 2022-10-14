@@ -24,7 +24,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   flex-basis: 100px;
-  
+  background-color: aliceblue;
 }
 
 .puppyCard {
@@ -53,6 +53,7 @@ body {
   border-radius: 60px;
   width: 40%;
   padding: 20px;
+  border: solid 2px darkgrey;
 
   display: flex;
   flex-direction: column;
@@ -61,4 +62,8 @@ body {
 
 .puppySelect img {
 height: 500px;
+}
+
+.transparent{
+  opacity: 20%;
 }
