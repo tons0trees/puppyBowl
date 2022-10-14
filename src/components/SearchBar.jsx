@@ -6,7 +6,6 @@ const SearchBar = ({puppyList, setFilteredList}) => {
         let searchString = event.target[0].value.toLowerCase()
         const newPuppyList = puppyList.filter(elem => elem.name.toLowerCase().includes(searchString));
         setFilteredList(newPuppyList);
-        console.log(newPuppyList)
     }
 
     return (

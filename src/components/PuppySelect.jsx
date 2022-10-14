@@ -2,8 +2,7 @@ import React from 'react'
 
 const PuppySelect = ({puppy, setChosenPuppy}) =>{
     return(
-        <div className="modal">
-            <div className="modalContent">
+        <div className="puppySelect">
             <h3>{puppy.name}</h3>
             <img className="profilePic" src={puppy.imageUrl} />
             <div className="puppyDetails">
@@ -12,8 +11,7 @@ const PuppySelect = ({puppy, setChosenPuppy}) =>{
                 <p><b>Team:</b> {puppy.teamId === 442 ? 'Ruff' : "Fluff"}</p>
                 <p><b>Status:</b> {puppy.status}</p>
             </div>
-            <button onClick={() => {setChosenPuppy({})}}>Close</button>
-            </div>
+        <button onClick={() => {setChosenPuppy({})}}>Close</button>
         </div>
     )
 }
