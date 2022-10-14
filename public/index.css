@@ -67,3 +67,11 @@ height: 500px;
 .transparent{
   opacity: 20%;
 }
+
+#inputForm {
+  display: flex;
+  flex-direction: column;
+
+  left: 30%;
+  width: 40%;
+}
