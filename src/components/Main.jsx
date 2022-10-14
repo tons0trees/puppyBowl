@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import {Navbar, PuppyLineup, PuppySelect} from "./"
+import {Navbar, PuppyLineup, PuppySelect, PuppyInputForm} from "./"
 
 const Main = () => {
     const [puppyList, setPuppyList] = useState([]);
@@ -18,13 +18,33 @@ const Main = () => {
         console.log(chosen);
     }
 
+    async function createPuppy() {
+        const response = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: 'Rufus2',
+                breed: 'Irish Setter',
+            }),
+        })
+        const result = await response.json();
+        let newPuppyList = [...puppyList, result.data.newPlayer];
+        console.log(newPuppyList);
+        // setPuppyList(result.data.newPlayer);
+    }
+
     useEffect(() => {getPuppyList()},[]);
 
     return (
         <div id="main">
             <Navbar puppyList={puppyList} setFilteredList={setFilteredList}/>
+            <PuppyInputForm />
             {chosenPuppy.id ? <PuppySelect puppy={chosenPuppy} setChosenPuppy={setChosenPuppy}/>: null}
             <PuppyLineup puppyList={puppyList} filteredList={filteredList} choosePuppy={choosePuppy} chosenPuppy={chosenPuppy}/>
+            <button onClick={createPuppy}>Create Rufus</button>
         </div>
     )
 }
