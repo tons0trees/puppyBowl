@@ -18,17 +18,14 @@ const Main = () => {
         console.log(chosen);
     }
 
-    async function createPuppy() {
+    async function createPuppy(paramPuppy) {
         const response = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-ET-WEB-FT/players',
         {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                name: 'Rufus2',
-                breed: 'Irish Setter',
-            }),
+            body: JSON.stringify(paramPuppy),
         })
         const result = await response.json();
         let newPuppyList = [...puppyList, result.data.newPlayer];
@@ -41,7 +38,7 @@ const Main = () => {
     return (
         <div id="main">
             <Navbar puppyList={puppyList} setFilteredList={setFilteredList}/>
-            <PuppyInputForm />
+            <PuppyInputForm createPuppy={createPuppy}/>
             {chosenPuppy.id ? <PuppySelect puppy={chosenPuppy} setChosenPuppy={setChosenPuppy}/>: null}
             <PuppyLineup puppyList={puppyList} filteredList={filteredList} choosePuppy={choosePuppy} chosenPuppy={chosenPuppy}/>
             <button onClick={createPuppy}>Create Rufus</button>
